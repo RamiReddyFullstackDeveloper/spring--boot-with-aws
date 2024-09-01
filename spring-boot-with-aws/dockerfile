@@ -1,5 +1,5 @@
 FROM openjdk:17-alpine
 LABEL version=1.2
 VOLUME /tmp 
-COPY target/spring-boot-with-aws-app 0.0.1-SNAPSHOT aws-ecs-s3.jar/
+COPY target/spring-boot-with-aws-app-0.0.1-SNAPSHOT aws-ecs-s3.jar
 ENTRYPOINT ["java","-jar","/aws-ecs-s3.jar"]
