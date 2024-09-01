@@ -1,0 +1,6 @@
+server:
+ port: 8081
+spring:
+ application:
+  name: spring-boot-with-aws-ecs-s3-event-bridge
+
