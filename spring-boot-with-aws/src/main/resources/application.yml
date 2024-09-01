@@ -3,4 +3,6 @@ server:
 spring:
  application:
   name: spring-boot-with-aws-ecs-s3-event-bridge
+employee:
+ name: ramireddy
 
