@@ -6,3 +6,9 @@ spring:
 employee:
  name: ramireddy
 
+read:
+ env:
+  value:
+    from:
+     ecs:
+      task: ${BUCKET_NAME:poc-ved-bucket-s3}

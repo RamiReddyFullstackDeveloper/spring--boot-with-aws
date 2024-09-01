@@ -25,9 +25,17 @@ public class AWSS3Controller {
 		return  ResponseEntity.status(HttpStatus.OK).body(EmployeeUtil.getEmp(pathName));
 	}
 
-	@GetMapping("emp/name")
+	@GetMapping("/emp/name")
 	public ResponseEntity<String> getName(){
 		return ResponseEntity.status(200).body(name);
+	}
+
+	@Value("${read.env.value.from.ecs.task}")
+	String bucketName;
+
+	@GetMapping("emp/ecs")
+	public ResponseEntity<String> getBucketNameFromECSTask(){
+		return ResponseEntity.status(200).body(bucketName);
 	}
 
 }
