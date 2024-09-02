@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.aws.s3.eventbridge.ecs.model.S3Bucket;
 import com.aws.s3.eventbridge.ecs.util.EmployeeUtil;
 
 
@@ -36,6 +37,21 @@ public class AWSS3Controller {
 	@GetMapping("emp/ecs")
 	public ResponseEntity<String> getBucketNameFromECSTask(){
 		return ResponseEntity.status(200).body(bucketName);
+	}
+
+
+	@Value("${s3.bucket-name}")
+	String s3bucketName;
+
+	@Value("${s3.file-name}")
+	private String fileName;
+
+	@Value("${s3.timestamp}")
+	private String timeStamp;
+
+	@GetMapping("/getBucketInfo")
+	public ResponseEntity<S3Bucket> getBucketInfo(){
+		return ResponseEntity.status(200).body( new S3Bucket(bucketName, fileName, timeStamp));
 	}
 
 }
